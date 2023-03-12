@@ -18,7 +18,7 @@ add-extensions:
     version: stable
     versions: stable;beta;test
     add-ld-path: lib
-    merge-dirs: share/pro.vpup.vpuppr/extensions
+    merge-dirs: share/pro.vpup.vpuppr/resources/extensions
     no-autodownload: true
     autodelete: true
     
