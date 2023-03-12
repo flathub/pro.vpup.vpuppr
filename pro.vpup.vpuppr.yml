@@ -29,7 +29,7 @@ modules:
   - name: puppeteer
     buildsystem: simple
     build-commands:
-      - mkdir /app/bin
+      - mkdir /app/{utils, bin}
       - mkdir -p /app/share/{pro.vpup.vpuppr, vpuppr}/resources/
       - install -Dm644 pro.vpup.vpuppr.metainfo.xml -t /app/share/metainfo/
 
