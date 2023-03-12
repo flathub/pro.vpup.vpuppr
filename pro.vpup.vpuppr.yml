@@ -14,11 +14,9 @@ finish-args:
 add-extensions:
   pro.vpup.vpuppr.Extension:
     subdirectories: true
-    directory: utils
+    directory: extensions
     version: stable
     versions: stable;beta;test
-    add-ld-path: lib
-    merge-dirs: share/pro.vpup.vpuppr/resources/extensions
     no-autodownload: true
     autodelete: true
     
@@ -29,22 +27,19 @@ modules:
   - name: puppeteer
     buildsystem: simple
     build-commands:
-      - mkdir -p /app/bin /app/utils /app/share/vpuppr/resources/ /app/share/pro.vpup.vpuppr/resources/
+      - mkdir -p /app/bin /app/share/vpuppr/resources/ /app/share/pro.vpup.vpuppr/resources/ /app/extensions
       - install -Dm644 pro.vpup.vpuppr.metainfo.xml -t /app/share/metainfo/
 
-      - install -Dm 644 -t /app/share/applications pro.vpup.vpuppr.desktop
-      - install -Dm644  pro.vpup.vpuppr-scalable.svg /app/share/icons/hicolor/scalable/apps/pro.vpup.vpuppr.svg
+      - install -Dm644 pro.vpup.vpuppr.desktop /app/share/applications/pro.vpup.vpuppr.desktop
+      - install -Dm644 pro.vpup.vpuppr-scalable.svg /app/share/icons/hicolor/scalable/apps/pro.vpup.vpuppr.svg
 
       - mv vpuppr.* /app/bin/
       - chmod +x /app/bin/vpuppr.x86_64
       - mv resources /app/share/pro.vpup.vpuppr/
 
 
-      - ln -s /app/share/vpuppr/ /app/bin/resources
+      - ln -s /app/share/pro.vpup.vpuppr/resources /app/bin/resources
       - ln -s /app/share/pro.vpup.vpuppr /app/share/vpuppr
-#      - ls /app/share/vpuppr/resources/extensions/openseeface-tracker
-#      - chmod +x /app/share/pro.vpup.vpuppr/resources/extensions/openseeface-tracker/OpenSeeFace
-
     sources:
       - type: archive
         url: https://github.com/virtual-puppet-project/vpuppr/releases/download/0.9.0/vpuppr_0.9.0_linux_flatpak_compat.zip
