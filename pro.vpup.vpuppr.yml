@@ -10,6 +10,19 @@ finish-args:
     - "--device=all" # webcam
     - "--socket=pulseaudio"
     - "--filesystem=home" # to see all files (vpuppr uses its own file picker), and function to select models properly
+    
+add-extensions:
+  pro.vpup.vpuppr.Extension:
+    subdirectories: true
+    directory: utils
+    version: stable
+    versions: stable;beta;test
+    add-ld-path: lib
+    merge-dirs: share/pro.vpup.vpuppr/extensions
+    no-autodownload: true
+    autodelete: true
+    
+    
 modules:
 
   # --- Puppeteer ---
